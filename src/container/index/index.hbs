@@ -22,7 +22,7 @@
             <label for="password" class="form__label"> Пароль:</label>
             <input type="password" name="password" class="form__input">
           </div>
-          <button class="form__button"> Створити </button>
+          <button class="form__button"> Створити</button>
         </div>
       </form>
     </div>
@@ -30,7 +30,7 @@
 
   <section>
     <div class="form">
-      <h1 class="form__title"> Список користувачів </h1>
+      <h1 class="form__title"> Список користувачів</h1>
       <div class="user__list">
         {{#with data.users}}
         {{#if isEmpty}}
@@ -38,7 +38,7 @@
         {{else}}
         <ul>
           {{#each list}}
-          <li> {{email}} | {{login}} | {{id}} <a href="/user-delete?id={{id}}">(видалити)</a></li>
+          <li>{{email}} / {{login}} / {{password}} / {{id}} <a href="/user-delete?id={{id}}"> (Видалити)</a></li>
           {{/each}}
         </ul>
         {{/if}}
@@ -47,30 +47,29 @@
     </div>
   </section>
 
+
   <section>
     <div class="form">
-      <h1 class="form__title">Оновити пошту користувача</h1>
+      <h1 class="form__title"> Оновити пошту користувача</h1>
       <form method="POST" action="/user-update">
         <div class="form__content">
           <div class="form__field">
-            <label for="id" class="form__label">ID:</label>
+            <label for="id" class="form__label"> ID:</label>
             <input type="id" name="id" class="form__input">
           </div>
           <div class="form__field">
-            <label for="email" class="form__label">Нова email адреса:</label>
+            <label for="email" class="form__label"> Нова email адреса:</label>
             <input type="email" name="email" class="form__input">
           </div>
-
           <div class="form__field">
-            <label for="password" class="form__label">Пароль:</label>
+            <label for="password" class="form__label"> Пароль:</label>
             <input type="password" name="password" class="form__input">
           </div>
-          <button class="form__button">Відправити</button>
+          <button class="form__button"> Відправити </button>
         </div>
       </form>
     </div>
   </section>
-
 </main>
 
 
