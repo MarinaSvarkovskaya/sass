@@ -16,16 +16,15 @@ class User {
   }
 
   verifyPassword = (password) => this.password === password
+
   static add = (user) => {
     this.#list.push(user)
   }
-  static getList = () => {
-    this.#list
-  }
 
-  static getById = (id) => {
+  static getList = () => this.#list
+
+  static getById = (id) =>
     this.#list.find((user) => user.id === id)
-  }
 
   static deleteById = (id) => {
     const index = this.#list.findIndex(
@@ -39,6 +38,7 @@ class User {
       return false
     }
   }
+
   static updateById = (id, data) => {
     const user = this.getById(id)
 
@@ -59,7 +59,52 @@ class User {
 }
 
 // ================================================================
+// class Product {
+//   #list = []
+//   constructor(name, price, description) {
+//     this.name = name
+//     this.price = price
+//     this.description = description
+//     this.id = Math.random()
+//     this.createDate = new Date().toISOString()
+//   }
+//   static add = (name) => {
+//     this.#list.push(name)
+//   }
+//   static getList = () => {
+//     this.#list
+//   }
 
+//   static getById = (id) => {
+//     this.#list.find((name) => name.id === id)
+//   }
+
+//   static deleteById = (id) => {
+//     const index = this.#list.findIndex(
+//       (name) => name.id === id,
+//     )
+
+//     if (index !== -1) {
+//       this.#list.splice(index, 1)
+//       return true
+//     } else {
+//       return false
+//     }
+//   }
+//   static updateById = (id, data) => {
+//     const name = this.getById(id)
+
+//     if (name) {
+//       this.update(name, data)
+
+//       return true
+//     } else {
+//       return false
+//     }
+//   }
+// }
+
+// ================================================================
 // router.get Створює нам один ентпоїнт
 
 // ↙️ тут вводимо шлях (PATH) до сторінки
@@ -108,7 +153,9 @@ router.get('/user-delete', function (req, res) {
 // ================================================================
 
 router.post('/user-update', function (req, res) {
+  // res.render генерує нам HTML сторінку
   const { email, password, id } = req.body
+
   let result = false
 
   const user = User.getById(Number(id))
@@ -117,7 +164,27 @@ router.post('/user-update', function (req, res) {
     User.update(user, { email })
     result = true
   }
+  res.render('success-info', {
+    // вказуємо назву папки контейнера, в якій знаходяться наші стилі
+    style: 'success-info',
+    info: result ? 'Email оновлений' : 'Сталася помилка',
+  })
+  // ↑↑ сюди вводимо JSON дані
+})
 
+// ================================================================
+
+router.get('/product-create', function (req, res) {
+  res.render('success-info', {
+    style: 'success-info',
+    info: 'Користувач видалений',
+  })
+})
+
+// ================================================================
+
+router.post('/product-create', function (req, res) {
+  const { name, price, descriptionÌ } = req.body
   res.render('success-info', {
     style: 'success-info',
     info: result ? 'Пошта оновлена' : 'Cталася помилка',
