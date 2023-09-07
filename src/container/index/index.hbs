@@ -38,7 +38,7 @@
         {{else}}
         <ul>
           {{#each list}}
-          <li> {{email}} | {{login}} | {{id}} <a href="/user-delete?id={{id}}">(видалити)</a></li>
+          <li>{{email}} / {{login}} / {{password}} / {{id}} <a href="/user-delete?id={{id}}">Видалити</a></li>
           {{/each}}
         </ul>
         {{/if}}
@@ -70,7 +70,6 @@
       </form>
     </div>
   </section>
-
 </main>
 
 
