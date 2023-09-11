@@ -36,19 +36,23 @@
     &__button {
         border: 1px solid s.color('light');
         padding: s.space(2);
-        border-radius: 20px;
+        border-radius: 10px;
+        text-decoration: none;
+        color: aliceblue;
+        background-color: blue;
+        max-height: 40px;
+        max-width: 200px;
+        text-align: center;
     }
-}
-main {
-    display: flex;
-    flex-direction: column;
-    gap: s.space(10);
-}
-
-.user-list {
-    li {
-        padding-top: 5px ;
-        padding-bottom: 5px ;
-        padding-right: 15px;
+    &__button_delete {
+        border: 1px solid s.color('light');
+        padding: s.space(2);
+        border-radius: 10px;
+        text-decoration: none;
+        color: aliceblue;
+        background-color: red;
+        max-height: 40px;
+        max-width: 200px;
+        text-align: center;
     }
 }
