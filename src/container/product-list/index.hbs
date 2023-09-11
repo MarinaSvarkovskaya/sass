@@ -10,6 +10,7 @@
       {{#with data.products }}
       {{#if isEmpty}}
       <mark> Пустий</mark>
+      <a href="/product-create" class="card-link">Додати новий товар</a>
       {{else}}
       {{#each list}}
       <h4 class="card-title"> {{name}}</h4>
